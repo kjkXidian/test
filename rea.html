@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.left{
+			position: relative;
+			float: left;
+			margin-right: 30px;
+
+		}
+		.right{
+			position: relative;
+			float: right;
+			
+		}
+	</style>
+</head>
+<body>
+	<div class="row">
+		<div class="left">
+			<!--左边的图片部分写在这里-->
+			<img src="your picture url">
+		</div>
+		<div class="right">
+			<!--文字部分写在这里-->
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="clock">nihao</div>
+
+	<script type="text/javascript">
+		var deadline = 'Jul 31 2016';
+		var end = Date.parse(deadline);
+		console.log("nidjgdhgdh");
+		var daojishi = function(endS){
+			var t = endS - Date.parse(new Date());
+			var seconds = Math.floor((t/1000)%60);
+			var minutes = Math.floor((t/1000/60)%60);
+			var hours = Math.floor((t/1000/60/60)%24);
+			var days = Math.floor((t/1000/60/60/24));
+			return{
+				'total': t,
+				'days': days,
+				'hours': hours,
+				'minutes': minutes,
+				'seconds': seconds
+			};
+		}
+		function initclock(id, endtime){
+			var clock = document.getElementById(id);
+			var loop = setInterval(function(){
+				var time = daojishi(endtime);
+				clock.innerHTML = 'days : '+ time.days + '<br>'+ 'hours :'+ time.hours + '<br>'+
+				'minutes :'+ time.minutes + '<br>'+ 'seconds :'+time.seconds;
+				if(time.total = 0){
+					clearInterval(loop);
+				}
+			},1000);
+		}
+		initclock('clock', end);
+
+		function step()
+	</script>
+</body>
+</html>
